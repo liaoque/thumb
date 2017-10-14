@@ -16,41 +16,43 @@
 原图压缩
 缩放地址: http://img.xxxx.com/kaixinwan/2016/11/6a65a3f776ed459585cd8b6afdaa4ad9.jpg.0X0.jpg
 
-
-
+-----------------------------------------------------------------------------------------------------------------------
+-----------------------------------------------------------------------------------------------------------------------
 #graphicsmagick
 1. 安装graphicsmagick
-graphicsmagick
- 下载地址列表: https://sourceforge.net/projects/graphicsmagick/files/graphicsmagick/1.3.25/
- 下载地址: https://jaist.dl.sourceforge.net/project/graphicsmagick/graphicsmagick/1.3.25/GraphicsMagick-1.3.25.tar.gz
+    graphicsmagick
+        下载地址列表: https://sourceforge.net/projects/graphicsmagick/files/graphicsmagick/1.3.25/
+        下载地址: https://jaist.dl.sourceforge.net/project/graphicsmagick/graphicsmagick/1.3.25/GraphicsMagick-1.3.25.tar.gz
 环境和编译工具
- yum install -y gcc gcc-c++ make cmake autoconf automake
- yum install -y libpng-devel giflib-devel libjpeg-devel libtiff-devel jasper-devel freetype-devel
+        yum install -y gcc gcc-c++ make cmake autoconf automake
+        yum install -y libpng-devel giflib-devel libjpeg-devel libtiff-devel jasper-devel freetype-devel
 下载 graphicsmagick
- wget https://jaist.dl.sourceforge.net/project/graphicsmagick/graphicsmagick/1.3.25/GraphicsMagick-1.3.25.tar.gz
+        wget https://jaist.dl.sourceforge.net/project/graphicsmagick/graphicsmagick/1.3.25/GraphicsMagick-1.3.25.tar.gz
 解压
- tar -zxvf GraphicsMagick-1.3.25.tar.gz
+        tar -zxvf GraphicsMagick-1.3.25.tar.gz
 编译
- cd GraphicsMagick-1.3.25
- ./configure --enable-shared --enable-shared 必须加上,指定编译成共享库文件,否则无法安装gmagick扩展
- make && make install
+        cd GraphicsMagick-1.3.25
+        ./configure --enable-shared --enable-shared 必须加上,指定编译成共享库文件,否则无法安装gmagick扩展
+        make && make install
 2. 安装gmagick扩展
-gmagick
- 下载地址列表: http://pecl.php.net/package/gmagick
- 下载地址: http://pecl.php.net/get/gmagick-1.1.7RC3.tgz
-下载 graphicsmagick
- wget http://pecl.php.net/get/gmagick-1.1.7RC3.tgz
-编译
- tar -zxvf gmagick-1.1.7RC3.tgz
- cd gmagick-1.1.7RC3
- phpize
- ./configure --with-php-config=/alidata/server/php-5.5.7/bin/php-config 路径自己换成正确的路径
- make && make install
+    gmagick
+        下载地址列表: http://pecl.php.net/package/gmagick
+        下载地址: http://pecl.php.net/get/gmagick-1.1.7RC3.tgz
+        下载 graphicsmagick
+        wget http://pecl.php.net/get/gmagick-1.1.7RC3.tgz
+    编译
+        tar -zxvf gmagick-1.1.7RC3.tgz
+        cd gmagick-1.1.7RC3
+        phpize
+        ./configure --with-php-config=/alidata/server/php-5.5.7/bin/php-config 路径自己换成正确的路径
+        make && make install
 3. 更改php配置,完成安装
- 在php.ini文件中加入extension=gmagick.so. 重启php-fpm就可以了
- 是否安装成功 可以打印 phpinfo() 查看
+    在php.ini文件中加入extension=gmagick.so. 重启php-fpm就可以了
+    是否安装成功 可以打印 phpinfo() 查看
 
 
+-----------------------------------------------------------------------------------------------------------------------
+-----------------------------------------------------------------------------------------------------------------------
 #PHP
 thumb.php 入口文件
 依赖类文件:
@@ -59,6 +61,9 @@ class/Img/GMagick.phpGMagick 封装类
 class/Img/Water.php水印图片类
 具体类方法留以后介绍
 
+
+-----------------------------------------------------------------------------------------------------------------------
+-----------------------------------------------------------------------------------------------------------------------
 #nginx配置
 server {
     listen       80;
