@@ -77,7 +77,7 @@ server {
 	location ~ \.(png|jpg|jpeg|gif)$ {
 		#如果文件不存在,则rewrite到产生图片的脚本文件autoimg.php
 		if (!-f $request_filename) {
-			rewrite ^/.*$ /thumb.php;
+			rewrite ^/(.*)$ /thumb.php?r=$1;
 			expires max;
 		}
 		#如果文件存在,则设置过期时间,关闭访问日志
